@@ -4,7 +4,7 @@ use strict;
 use base qw(Sledge::Session);
 use Cache::Memcached;
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 use vars qw($SessionExpires);
 $SessionExpires = 24 * 60 * 60; # 24hour
@@ -44,7 +44,7 @@ sub _update_me {
 
 sub _delete_me           { 
     my $self = shift;
-    $self->{_dbh}->delete($self->{_sid}, $self->{_data});
+    $self->{_dbh}->delete($self->{_sid});
 }
 
 sub _do_cleanup          {}
